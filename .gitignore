@@ -28,7 +28,7 @@
 *.app
 
 *.cmake
-ws
+safely
 CMakeCache.txt
 CMakeFiles/
 Makefile

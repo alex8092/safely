@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 
-project(ws)
+project(safely)
 
 SET(CMAKE_CXX_FLAGS "-std=c++1y -g3")
 
@@ -18,9 +18,9 @@ file(
 	include/*
 )
 
-add_executable(ws
+add_executable(safely
 	${header_files}
 	${source_files}
 )
 
-target_link_libraries(ws pthread)
+target_link_libraries(safely pthread)
