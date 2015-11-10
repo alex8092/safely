@@ -2,12 +2,13 @@
 # define SAFELY_GUARD_ACCESS_H
 
 # include "guard/safecall.h"
+# include "locker/atomic.h"
 
 namespace safely
 {
 	namespace guard
 	{
-		template <typename Locker, typename T>
+		template <typename T, typename Locker = locker::atomic>
 		struct access
 		{
 		private:

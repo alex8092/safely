@@ -1,16 +1,13 @@
 #include <iostream>
-#include "locker/atomic.h"
-#include "guard/lock.h"
-#include "guard/safecall.h"
-#include "guard/access.h"
+#include "safely.h"
 #include <unistd.h>
 #include <vector>
 #include <thread>
 #include <list>
 
-safely::locker::atomic 	lock;
-safely::locker::atomic	lock_cout;
-safely::guard::access<decltype(lock), std::list<int>>	_list;
+// safely::locker::atomic	lock_cout;
+safely::locker::Locker<safely::locker::atomic>	locker_cout;
+safely::guard::access<std::list<int>>	_list;
 
 void	consumer(int n)
 {
@@ -24,7 +21,7 @@ void	consumer(int n)
 				return -1;
 		});
 		if (i != -1) {
-			safely::guard::lock<decltype(lock_cout)>	l(lock_cout);
+			auto lock = locker_cout.lock();
 			std::cout << "consumer (" << n << ") - get (" << i << ")" << std::endl;
 		}
 		usleep(10000 * (n + 1));
@@ -39,7 +36,7 @@ void	producer(int n)
 			list.push_back(i);
 		});
 		{
-			safely::guard::lock<decltype(lock_cout)>	l(lock_cout);
+			auto lock = locker_cout.lock();
 			std::cout << "producer (" << n << ") - add (" << i << ")" << std::endl;
 		}
 		usleep(100000 * (n + 1));

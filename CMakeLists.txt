@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8)
 
 project(safely)
 
-SET(CMAKE_CXX_FLAGS "-std=c++1y -g3")
+SET(CMAKE_CXX_FLAGS "-std=c++1y -O3")
 
 include_directories(include/)
 

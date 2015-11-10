@@ -12,7 +12,8 @@ namespace safely
 		{
 		private:
 			lock(const lock&) = delete;
-			lock(lock&&) = delete;
+			lock& operator=(const lock&) = delete;
+			lock& operator=(lock&&) = delete;
 
 			T&				_locker;
 
@@ -22,11 +23,17 @@ namespace safely
 			{
 				locker.lock();
 			}
+			lock(lock&&) = default;
 
 			inline ~lock() noexcept {
 				this->_locker.unlock();
 			}
 		};
+
+		template <typename Locker>
+		static inline auto make_lock(Locker& l) noexcept {
+			return lock<Locker>(l);
+		}
 	}
 }
 
