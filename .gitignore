@@ -30,5 +30,6 @@
 *.cmake
 safelytest
 CMakeCache.txt
+install_manifest.txt
 CMakeFiles/
 Makefile
