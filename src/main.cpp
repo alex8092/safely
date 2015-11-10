@@ -1,5 +1,5 @@
 #include <iostream>
-#include "safely.h"
+#include "safely/safely.h"
 #include <unistd.h>
 #include <vector>
 #include <thread>

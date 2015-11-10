@@ -1,4 +1,4 @@
-#include "locker/atomic.h"
+#include "safely/locker/atomic.h"
 
 using safely::locker::atomic;
 

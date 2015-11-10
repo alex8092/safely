@@ -16,7 +16,7 @@ file(
 file(
 	GLOB_RECURSE
 	header_files
-	include/*
+	include/safely/*
 )
 
 add_library(safely SHARED
@@ -31,21 +31,21 @@ add_executable(safelytest
 
 INSTALL(
 	FILES
-		include/guard/access.h
-		include/guard/lock.h
-		include/guard/safecall.h
+		include/safely/guard/access.h
+		include/safely/guard/lock.h
+		include/safely/guard/safecall.h
  	DESTINATION include/safely/guard
 )
 
 INSTALL(
 	FILES
-		include/locker/atomic.h
-		include/locker/locker.h
+		include/safely/locker/atomic.h
+		include/safely/locker/locker.h
  	DESTINATION include/safely/locker
 )
 
 INSTALL(
-	FILES include/safely.h
+	FILES include/safely/safely.h
  	DESTINATION include/safely
 )
 

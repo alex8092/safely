@@ -1,8 +1,8 @@
 #ifndef SAFELY_GUARD_ACCESS_H
 # define SAFELY_GUARD_ACCESS_H
 
-# include "guard/safecall.h"
-# include "locker/atomic.h"
+# include "safely/guard/safecall.h"
+# include "safely/locker/atomic.h"
 
 namespace safely
 {

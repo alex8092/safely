@@ -1,7 +1,7 @@
 #ifndef SAFELY_LOCKER_LOCKER_H
 # define SAFELY_LOCKER_LOCKER_H
 
-# include "guard/lock.h"
+# include "safely/guard/lock.h"
 
 namespace safely
 {
