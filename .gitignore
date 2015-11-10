@@ -28,7 +28,7 @@
 *.app
 
 *.cmake
-safely
+safelytest
 CMakeCache.txt
 CMakeFiles/
 Makefile

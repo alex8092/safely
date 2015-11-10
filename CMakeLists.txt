@@ -9,7 +9,7 @@ include_directories(include/)
 file(
 	GLOB_RECURSE
 	source_files
-	src/*
+	src/locker/*
 )
 
 file(
@@ -18,9 +18,14 @@ file(
 	include/*
 )
 
-add_executable(safely
+add_library(safely SHARED
+	${header_files}
+	${source_files})
+
+add_executable(safelytest
 	${header_files}
 	${source_files}
+	src/main.cpp
 )
 
-target_link_libraries(safely pthread)
+target_link_libraries(safelytest safely pthread)

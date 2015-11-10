@@ -5,8 +5,7 @@
 #include <thread>
 #include <list>
 
-// safely::locker::atomic	lock_cout;
-safely::locker::Locker<safely::locker::atomic>	locker_cout;
+safely::locker::locker<safely::locker::atomic>	locker_cout;
 safely::guard::access<std::list<int>>	_list;
 
 void	consumer(int n)

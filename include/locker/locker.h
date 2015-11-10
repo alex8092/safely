@@ -8,19 +8,19 @@ namespace safely
 	namespace locker
 	{
 		template <typename TypeLock>
-		class Locker final
+		class locker final
 		{
 		private:
 			TypeLock	_lock;
 
-			Locker(const Locker&) = delete;
-			Locker&	operator=(const Locker&) = delete;
+			locker(const locker&) = delete;
+			locker&	operator=(const locker&) = delete;
 
 		public:
-			explicit Locker() noexcept = default;
-			~Locker() noexcept = default;
-			Locker(Locker&&) noexcept = default;
-			Locker& operator=(Locker&&) noexcept = default;
+			explicit locker() noexcept = default;
+			~locker() noexcept = default;
+			locker(locker&&) noexcept = default;
+			locker& operator=(locker&&) noexcept = default;
 
 			guard::lock<TypeLock>	lock() noexcept {
 				return guard::lock<TypeLock>(this->_lock);
